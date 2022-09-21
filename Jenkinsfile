@@ -21,7 +21,7 @@ pipeline {
 			stage('Pushing Docker Image to Jfrog Artifactory') {
 				steps {
 					script {
-						docker.withRegistry('https://vigneshsweekaran.jfrog.io', 'artifactory-credential') {
+						docker.withRegistry('https://mohit21arya.jfrog.io', 'artifactory-credential') {
 							docker.image("username/spring-petclinic:latest").push()
 							docker.image("username/spring-petclinic:latest").push("latest")
 						}
@@ -32,7 +32,7 @@ pipeline {
 				steps {
 					sh "docker stop spring-petclinic| true"
 					sh "docker rm spring-petclinic | true"
-					sh "docker run --name spring-petclinic -d -p 8081:8080 vigneshsweekaran.jfrog.io/username/spring-petclinic:latest"
+					sh "docker run --name spring-petclinic -d -p 8081:8080 mohit21arya.jfrog.io/username/spring-petclinic:latest"
 				}
 			}
 		}
