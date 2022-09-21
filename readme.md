@@ -1,19 +1,16 @@
 ﻿Building with Docker Using Jenkins Pipelines
-For starters, if you want to follow along with this exercise, you’ll need:
 
-Docker and Git installed (free)
-Docker Hub and GitHub accounts (free)
-When installing Docker, make sure to use a Stable release as opposed to an Edge release, or some functionality found in this post may not work.
+Docker and Git installed
+Docker Hub and GitHub accounts
 
 Preparing the Application and Spinning Up Jenkins
 1. First, make sure you are logged in to GitHub in any web browser. Then fork the Spring PetClinic repository (the example application we’ll use). If you want more of a challenge, swap out Spring PetClinic for your own application.
 
 Fork the repository
 ‍
+2. Clone your fork locally. 
 
-2. Clone your fork locally. Be sure to replace shanemacbride with your own GitHub username. We will do all work within this directory, so cd into it as well.
-
-$ git clone https://github.com/shanemacbride/spring-petclinic.git 
+$ git clone https://github.com/mohit21arya/spring-petclinic.git 
 $ cd spring-petclinic
 
 3. Start up Docker. Our Jenkins container will make use of it.
@@ -32,7 +29,7 @@ Creating a Basic Pipeline Job
 Creating a new pipeline in Jenkins
 ‍
 
-2. Configure the pipeline to refer to GitHub for source control management by selecting Pipeline script from SCM. Set the repository URL to your fork of Spring PetClinic. The URL I’ve entered here is:  https://github.com/shanemacbride/spring-petclinic.git.
+2. Configure the pipeline to refer to GitHub for source control management by selecting Pipeline script from SCM. Set the repository URL to your fork of Spring PetClinic. The URL I’ve entered here is:  https://github.com/mohit21arya/spring-petclinic.git.
 
 Setting the repository URL on the pipeline
 3. Save the job.
@@ -107,7 +104,7 @@ pipeline {
     stage('Docker Build') {
     	agent any
       steps {
-      	sh 'docker build -t shanem/spring-petclinic:latest .'
+      	sh 'docker build -t mohit21arya/spring-petclinic:latest .'
       }
     }
   }
